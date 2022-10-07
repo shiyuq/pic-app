@@ -1,0 +1,57 @@
+{
+    "pages": [
+        {
+            "path": "pages/login/index",
+            "style": {
+                "navigationBarTitleText": "登录"
+            }
+        },
+        {
+            "path": "pages/register/register",
+            "style": {
+                "navigationBarTitleText": "注册",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/forgetPwd/forgetPwd",
+            "style": {
+                "navigationBarTitleText": "忘记密码",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/home/home",
+            "style": {
+                "navigationBarTitleText": "首页",
+                "navigationStyle": "custom"
+            }
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "uni-app",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#F8F8F8",
+        "app-plus": {
+            "background": "#efeff4"
+        }
+    },
+    "tabBar": {
+        "color": "#A1A1A1",
+        "selectedColor": "#217BFB",
+        "borderStyle": "#EEEEEE",
+        "height": "50px",
+        "iconWidth": "24px",
+        "fontSize": "14px",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "static/tabbar/home-active.png",
+                "selectedIconPath": "static/tabbar/home-active.png",
+                "text": "首页"
+            }
+        ]
+    }
+}

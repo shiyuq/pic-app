@@ -26,6 +26,13 @@
                 "navigationBarTitleText": "首页",
                 "enablePullDownRefresh": false
             }
+        },
+        {
+            "path": "pages/statistis/statistis",
+            "style": {
+                "navigationBarTitleText": "数据统计",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {
@@ -51,6 +58,12 @@
                 "iconPath": "static/tabbar/home-active.png",
                 "selectedIconPath": "static/tabbar/home-active.png",
                 "text": "首页"
+            },
+            {
+                "pagePath": "pages/statistis/statistis",
+                "iconPath": "static/tabbar/data-default.png",
+                "selectedIconPath": "static/tabbar/data-active.png",
+                "text": "数据统计"
             }
         ]
     }

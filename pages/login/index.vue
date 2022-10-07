@@ -103,8 +103,8 @@ export default {
         roomCode: this.roomNo,
       });
       uni.setStorageSync("token", result.data && result.data.token);
-      const userInfo = await apiService.getUserInfo();
-      uni.setStorageSync("userInfo", JSON.stringify(userInfo && userInfo.data));
+      // const userInfo = await apiService.getUserInfo();
+      // uni.setStorageSync("userInfo", JSON.stringify(userInfo && userInfo.data));
       uni.showToast({
         title: "登录成功",
         icon: "success",

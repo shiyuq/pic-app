@@ -54,6 +54,13 @@
                 "navigationBarTitleText": "画家详情",
                 "enablePullDownRefresh": false
             }
+        },
+        {
+            "path": "pages/room/room",
+            "style": {
+                "navigationBarTitleText": "我的画室",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {

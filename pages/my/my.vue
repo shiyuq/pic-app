@@ -17,7 +17,9 @@
               }}</span>
               <view class="button-part1">普通会员</view>
             </view>
-            <view class="button">我的画室 ></view>
+            <view class="button" @click="gotoPage('/pages/room/room')"
+              >我的画室 ></view
+            >
           </view>
           <view class="credits">
             <view style="color: #818892; font-size: 12px; margin-bottom: 14px"
@@ -90,6 +92,11 @@ export default {
   async onShow() {
     const { data } = await apiService.getUserInfo();
     this.userInfo = data;
+  },
+  methods: {
+    gotoPage(url) {
+      uni.navigateTo({ url });
+    },
   },
 };
 </script>

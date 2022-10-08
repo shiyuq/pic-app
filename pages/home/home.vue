@@ -78,7 +78,7 @@
       </view>
     </view>
     <view class="part3">
-      <view class="title-3">
+      <view class="title-3" @click="gotoPage('/pages/artists/artists')">
         <span class="title-left">画家资料</span>
         <span class="title-right">更多 ></span>
       </view>
@@ -101,6 +101,11 @@ export default {
     return {
       artists: [],
     };
+  },
+  methods: {
+    gotoPage(url) {
+      uni.navigateTo({ url });
+    },
   },
   async onShow() {
     const { data } = await apiService.getArtistList({ start: 0, hit: 3 });

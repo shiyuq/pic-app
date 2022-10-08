@@ -6,7 +6,11 @@
         <span style="font-size: 15px">{{ item.name }}</span>
         <span style="font-size: 12px">{{ item.type }}</span>
       </view>
-      <view class="view-detail">查看</view>
+      <view
+        class="view-detail"
+        @click="gotoPage('/pages/artist/artist', item.id)"
+        >查看</view
+      >
     </view>
     <view class="no-more" v-if="!hasNextPage">没有更多了~</view>
   </view>
@@ -43,6 +47,9 @@ export default {
       } finally {
         this.loading = false;
       }
+    },
+    gotoPage(url, id) {
+      uni.navigateTo({ url: `${url}?id=${id}` });
     },
   },
 };

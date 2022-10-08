@@ -82,6 +82,10 @@ const deleteArtist = async (params) => {
   return axios.post("/artist/delete", params);
 };
 
+const getArtistDetail = async (params) => {
+  return axios.post("/artist/detail", params);
+};
+
 module.exports = {
   login,
   logout,
@@ -97,5 +101,6 @@ module.exports = {
   getArtistList,
   addArtist,
   updateArtist,
-  deleteArtist
+  deleteArtist,
+  getArtistDetail
 };

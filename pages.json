@@ -43,6 +43,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/artist/artist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "画家详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle": {
         "navigationBarTextStyle": "black",

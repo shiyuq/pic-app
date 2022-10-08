@@ -41,6 +41,24 @@
                 "enablePullDownRefresh": false
             }
         }
+        ,{
+            "path" : "pages/artists/artists",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "画家列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/artist/artist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "画家详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle": {
         "navigationBarTextStyle": "black",

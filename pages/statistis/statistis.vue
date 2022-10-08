@@ -15,13 +15,13 @@
           <view class="button">普通会员</view>
         </view>
         <view class="invite-code">
-          <img :src="avatar" alt="" />
+          <img src="/static/data/code.png" alt="" />
           <span style="font-size: 15px; color: #666666; margin-left: 11px"
             >我的邀请码：</span
           ><span style="font-size: 15px; color: #666666; font-weight: bold">{{
             userInfo.inviteCode
           }}</span>
-          <view class="copy">复制</view>
+          <view class="copy" @click="copy">复制</view>
         </view>
         <view class="my-commission">
           <span style="font-size: 18px; font-weight: 500; color: #333333"
@@ -85,13 +85,26 @@ export default {
   data() {
     return {
       userInfo: {},
-      avatar:
-        "https://shiyuq.oss-cn-shanghai.aliyuncs.com/pic-node/72c5e7eb-0fdd-4927-8410-8eaa2df6f070.png",
+      avatar: "/static/avatar-user.png",
     };
   },
   async onShow() {
     const { data } = await apiService.getUserInfo();
     this.userInfo = data;
+  },
+  methods: {
+    copy() {
+      const aux = document.createElement("input");
+      aux.setAttribute("value", this.userInfo.inviteCode);
+      document.body.appendChild(aux);
+      aux.select();
+      document.execCommand("copy");
+      document.body.removeChild(aux);
+      uni.showToast({
+        title: "已复制到剪切板",
+        duration: 2000,
+      });
+    },
   },
 };
 </script>

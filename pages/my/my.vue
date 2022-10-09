@@ -73,7 +73,9 @@
         </view>
         <view class="part2-line">
           <img src="/static/my/logout.png" alt="" />
-          <span style="color: #333333; font-size: 16px">退出登录</span>
+          <span style="color: #333333; font-size: 16px" @click="logout()"
+            >退出登录</span
+          >
         </view>
       </view>
     </view>
@@ -96,6 +98,11 @@ export default {
   methods: {
     gotoPage(url) {
       uni.navigateTo({ url });
+    },
+    logout() {
+      uni.removeStorageSync("token");
+      uni.removeStorageSync("roomNo");
+      this.gotoPage("/pages/login/index");
     },
   },
 };

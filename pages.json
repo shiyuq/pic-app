@@ -61,6 +61,20 @@
                 "navigationBarTitleText": "我的画室",
                 "enablePullDownRefresh": false
             }
+        },
+        {
+            "path": "pages/pics/pics",
+            "style": {
+                "navigationBarTitleText": "商品列表",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/picDetail/picDetail",
+            "style": {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {

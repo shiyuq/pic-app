@@ -103,6 +103,7 @@ export default {
         roomCode: this.roomNo,
       });
       uni.setStorageSync("token", result.data && result.data.token);
+      uni.setStorageSync("roomNo", this.roomNo);
       // const userInfo = await apiService.getUserInfo();
       // uni.setStorageSync("userInfo", JSON.stringify(userInfo && userInfo.data));
       uni.showToast({

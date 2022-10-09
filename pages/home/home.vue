@@ -41,7 +41,7 @@
         <text>画苑商城</text>
       </view>
       <view class="mall">
-        <view class="mall-left">
+        <view class="mall-left" @click="gotoPage('/pages/pics/pics')">
           <view class="content-left">
             <span class="enter">进入商城</span>
             <view class="enter-mall">ENTER THE MALL</view>

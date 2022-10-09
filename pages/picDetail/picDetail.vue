@@ -20,7 +20,12 @@
       <view class="downer">{{ goods.description }}</view>
     </view>
     <view class="footer">
-      <view class="botton"></view>
+      <view class="btn">
+        <view class="botton" v-if="currentTime > +new Date(goods.sellTime)"
+          >立即购买</view
+        >
+        <view class="botton" v-else>我要预约</view>
+      </view>
     </view>
   </view>
 </template>
@@ -32,12 +37,14 @@ export default {
     return {
       id: "",
       goods: null,
+      currentTime: 0,
     };
   },
   onLoad(option) {
     this.id = option.id;
   },
   async onShow() {
+    this.currentTime = +new Date();
     await this.getGoodsDetail();
   },
   methods: {
@@ -122,7 +129,7 @@ export default {
       font-size: 14px;
       font-weight: 500;
       color: #333333;
-      padding-bottom: 40px;
+      padding-bottom: 60px;
     }
   }
 }
@@ -131,6 +138,9 @@ export default {
   width: 100%;
   position: fixed;
   bottom: 0;
+  .btn {
+    margin: 10px 15px;
+  }
   .botton {
     width: 100%;
     height: 44px;
@@ -139,6 +149,8 @@ export default {
     font-size: 15px;
     font-weight: 500;
     color: #ffffff;
+    text-align: center;
+    line-height: 44px;
   }
 }
 </style>

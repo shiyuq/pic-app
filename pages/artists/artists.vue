@@ -33,7 +33,9 @@ export default {
     await this.getArtistList({ start: 0, hit: 10 });
   },
   async onReachBottom() {
-    await this.getArtistList({ start: this.artists.length, hit: 10 });
+    if (this.hasNextPage) {
+      await this.getArtistList({ start: this.artists.length, hit: 10 });
+    }
   },
   methods: {
     async getArtistList({ start = 0, hit = 10 }) {

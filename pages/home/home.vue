@@ -41,7 +41,7 @@
         <text>画苑商城</text>
       </view>
       <view class="mall">
-        <view class="mall-left" @click="gotoPage('/pages/pics/pics')">
+        <view class="mall-left" @click="gotoPage('/pages/pics/pics', 'total')">
           <view class="content-left">
             <span class="enter">进入商城</span>
             <view class="enter-mall">ENTER THE MALL</view>
@@ -63,7 +63,7 @@
                 <img src="/static/home/experience.png" alt=""
               /></view>
             </view>
-            <view class="r-d">
+            <view class="r-d" @click="gotoPage('/pages/pics/pics', 'reverse')">
               <view class="r-l-l">
                 <span class="enter">可预约</span>
                 <view class="enter-mall">RESERVE</view>
@@ -103,8 +103,12 @@ export default {
     };
   },
   methods: {
-    gotoPage(url) {
-      uni.navigateTo({ url });
+    gotoPage(url, type) {
+      if (!type) {
+        uni.navigateTo({ url });
+      } else {
+        uni.navigateTo({ url: `${url}?type=${type}` });
+      }
     },
   },
   async onShow() {

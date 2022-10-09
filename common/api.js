@@ -94,6 +94,18 @@ const getGoodsDetail = async (params) => {
   return axios.post("/pic/detail", params);
 }
 
+const buyGoods = async (params) => {
+  return axios.post("/pic/buy", params);
+}
+
+const getOrderList = async (params) => {
+  return axios.post("/order/list", params);
+}
+
+const getOrderDetail = async (params) => {
+  return axios.post("/order/detail", params);
+}
+
 module.exports = {
   login,
   logout,
@@ -113,5 +125,9 @@ module.exports = {
   getArtistDetail,
 
   getGoodsList,
-  getGoodsDetail
+  getGoodsDetail,
+  buyGoods,
+
+  getOrderList,
+  getOrderDetail
 };

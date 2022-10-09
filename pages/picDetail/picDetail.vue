@@ -21,7 +21,10 @@
     </view>
     <view class="footer">
       <view class="btn">
-        <view class="botton" v-if="currentTime > +new Date(goods.sellTime)"
+        <view
+          class="botton"
+          v-if="currentTime > +new Date(goods.sellTime)"
+          @click="buy()"
           >立即购买</view
         >
         <view class="botton" v-else>我要预约</view>
@@ -56,6 +59,27 @@ export default {
     },
     gotoPage(url, id) {
       uni.navigateTo({ url: `${url}?id=${id}` });
+    },
+    async buy() {
+      const _this = this;
+      uni.showModal({
+        title: "购买",
+        content: "是否确认购买该画",
+        success: function (res) {
+          if (!res.confirm) return;
+          apiService.buyGoods({ id: _this.id }).then((data) => {
+            if (!data) return;
+            const orderId = data.data && data.data.orderId;
+            uni.showToast({
+              title: "购买成功",
+              duration: 2000,
+            });
+            setTimeout(() => {}, 2000);
+            _this.gotoPage("/pages/orderDetail/orderDetail", orderId);
+          });
+        },
+        fail: function () {},
+      });
     },
   },
 };

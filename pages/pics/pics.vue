@@ -11,8 +11,9 @@
         <view class="name">{{ item.name }}</view>
         <view class="credit">{{ item.realCredit }} 积分</view>
       </view>
-      <view class="no-more" v-if="!hasNextPage">没有更多了~</view>
     </view>
+    <view class="no-more" v-if="!hasNextPage && items.length">没有更多了~</view>
+    <view class="no-more" v-else>暂无商品~</view>
   </view>
 </template>
 
@@ -24,7 +25,11 @@ export default {
       items: [],
       hasNextPage: false,
       loading: false,
+      type: "",
     };
+  },
+  onLoad(option) {
+    this.type = (option && option.type) || "";
   },
   async onShow() {
     this.items = [];
@@ -33,14 +38,22 @@ export default {
     await this.getGoodsList({ start: 0, hit: 10 });
   },
   async onReachBottom() {
-    await this.getGoodsList({ start: this.items.length, hit: 10 });
+    if (this.hasNextPage) {
+      await this.getGoodsList({ start: this.items.length, hit: 10 });
+    }
   },
   methods: {
     async getGoodsList({ start = 0, hit = 10 }) {
       if (this.hasNextPage === false && this.items.length !== 0) return;
       this.loading = true;
       try {
-        const { data } = await apiService.getGoodsList({ start, hit });
+        const typeMap = {
+          total: "1",
+          onSell: "2",
+          reverse: "3",
+        };
+        const type = typeMap[this.type] || "1";
+        const { data } = await apiService.getGoodsList({ start, hit, type });
         this.items = [...this.items, ...data.items];
         this.hasNextPage = data.hasNextPage;
       } catch (error) {
@@ -94,5 +107,6 @@ export default {
   text-align: center;
   margin: 0 auto;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 </style>

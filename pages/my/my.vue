@@ -36,18 +36,27 @@
             >
           </view>
           <view class="my-commission">
-            <view class="commission-title">
+            <view
+              class="commission-title"
+              @click="gotoPage('/pages/orderList/orderList', 'all')"
+            >
               <span style="font-size: 18px; font-weight: 500; color: #333333"
                 >我的订单</span
               >
               <view style="margin-left: auto; color: #999999">></view>
             </view>
             <view class="commission-detail">
-              <view class="commission-single">
+              <view
+                class="commission-single"
+                @click="gotoPage('/pages/orderList/orderList', 'toConfirm')"
+              >
                 <img src="/static/my/confirm.png" alt="" />
                 <view class="commission-text">待确认</view>
               </view>
-              <view class="commission-single">
+              <view
+                class="commission-single"
+                @click="gotoPage('/pages/orderList/orderList', 'finished')"
+              >
                 <img src="/static/my/finished.png" alt="" />
                 <view class="commission-text">已完成</view>
               </view>
@@ -96,8 +105,12 @@ export default {
     this.userInfo = data;
   },
   methods: {
-    gotoPage(url) {
-      uni.navigateTo({ url });
+    gotoPage(url, type) {
+      if (type) {
+        uni.navigateTo({ url: `${url}?type=${type}` });
+      } else {
+        uni.navigateTo({ url });
+      }
     },
     logout() {
       uni.removeStorageSync("token");

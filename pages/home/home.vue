@@ -16,13 +16,19 @@
         </swiper>
       </view>
       <view class="order-list">
-        <view class="order-item">
+        <view
+          class="order-item"
+          @click="gotoPage('/pages/orderList/orderList', 'toConfirm')"
+        >
           <view class="bgc">
             <img src="/static/home/topay.png" alt="" />
           </view>
           <span style="font-size: 15px; padding-top: 15px">待确认订单</span>
         </view>
-        <view class="order-item">
+        <view
+          class="order-item"
+          @click="gotoPage('/pages/orderList/orderList', 'finished')"
+        >
           <view class="bgc">
             <img src="/static/home/finished.png" alt="" />
           </view>

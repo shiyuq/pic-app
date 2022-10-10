@@ -25,20 +25,32 @@
     </view>
     <view class="part2"></view>
     <view class="part3">
-      <view class="part3-order">
+      <view
+        class="part3-order"
+        @click="gotoPage('/pages/orderList/orderList', 'all')"
+      >
         <view class="left">订单管理</view>
         <view class="right">查看订单 ></view>
       </view>
       <view class="order-list">
-        <view class="order-single">
+        <view
+          class="order-single"
+          @click="gotoPage('/pages/orderList/orderList', 'toConfirm')"
+        >
           <view class="upper">{{ userInfo.toConfirmOrders }}</view>
           <view class="downer">待确认</view>
         </view>
-        <view class="order-single">
+        <view
+          class="order-single"
+          @click="gotoPage('/pages/orderList/orderList', 'finished')"
+        >
           <view class="upper">{{ userInfo.finishedOrders }}</view>
           <view class="downer">已完成</view>
         </view>
-        <view class="order-single">
+        <view
+          class="order-single"
+          @click="gotoPage('/pages/orderList/orderList', 'all')"
+        >
           <view class="upper">{{ userInfo.totalOrders }}</view>
           <view class="downer">全部订单</view>
         </view>
@@ -56,7 +68,10 @@
         <view class="tool-header">我的工具</view>
         <view v-if="currentRole === 4">
           <view class="tool-list">
-            <view class="tool-single">
+            <view
+              class="tool-single"
+              @click="gotoPage('/pages/picManage/picManage')"
+            >
               <img src="/static/room/goods-manage.png" alt="" />
               <view class="single-text">作品管理</view>
             </view>
@@ -76,7 +91,10 @@
               <img src="/static/room/publish.png" alt="" />
               <view class="single-text">发布作品</view>
             </view>
-            <view class="tool-single">
+            <view
+              class="tool-single"
+              @click="gotoPage('/pages/picManage/picManage')"
+            >
               <img src="/static/room/goods-manage.png" alt="" />
               <view class="single-text">作品管理</view>
             </view>
@@ -138,6 +156,13 @@ export default {
         title: "已复制到剪切板",
         duration: 2000,
       });
+    },
+    gotoPage(url, type) {
+      if (type) {
+        uni.navigateTo({ url: `${url}?type=${type}` });
+      } else {
+        uni.navigateTo({ url });
+      }
     },
   },
 };

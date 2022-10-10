@@ -74,8 +74,9 @@ export default {
               title: "购买成功",
               duration: 2000,
             });
-            setTimeout(() => {}, 2000);
-            _this.gotoPage("/pages/orderDetail/orderDetail", orderId);
+            setTimeout(() => {
+              _this.gotoPage("/pages/orderDetail/orderDetail", orderId);
+            }, 1000);
           });
         },
         fail: function () {},

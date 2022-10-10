@@ -83,6 +83,24 @@
                 "enablePullDownRefresh": false
             }
         }
+        ,{
+            "path" : "pages/orderList/orderList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的订单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/picManage/picManage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "作品管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle": {
         "navigationBarTextStyle": "black",

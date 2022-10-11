@@ -87,7 +87,10 @@
         </view>
         <view v-else>
           <view class="tool-list">
-            <view class="tool-single">
+            <view
+              class="tool-single"
+              @click="gotoPage('/pages/publish/publish')"
+            >
               <img src="/static/room/publish.png" alt="" />
               <view class="single-text">发布作品</view>
             </view>

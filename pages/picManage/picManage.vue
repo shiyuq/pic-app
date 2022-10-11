@@ -8,15 +8,63 @@
       @clickItem="onClickItem"
     ></uni-segmented-control>
     <view class="content">
-      <view
-        class="item"
-        v-for="item in items"
-        :key="item.id"
-        @click="gotoPage('/pages/orderDetail/orderDetail', item.id)"
-      >
+      <view class="item" v-for="item in items" :key="item.id">
         <view class="title">
           <view class="left">作品状态：</view>
-          <view class="right">{{ item.statusName }}</view>
+          <view
+            class="right"
+            v-if="item.statusCode === '1'"
+            style="color: #217bfb"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '2'"
+            style="color: #f9a83f"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '3'"
+            style="color: #fa2929"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '4'"
+            style="color: #fa7329"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '5'"
+            style="color: #fa7329"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '6'"
+            style="color: #fa7329"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '7'"
+            style="color: #fa7329"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '8'"
+            style="color: #fa7329"
+            >{{ item.statusName }}</view
+          >
+          <view
+            class="right"
+            v-if="item.statusCode === '9'"
+            style="color: #fa2929"
+            >{{ item.statusName }}</view
+          >
         </view>
         <view class="pic">
           <img :src="item.avatar" alt="" />
@@ -25,15 +73,148 @@
             <view class="downer">{{ item.credit }} 积分</view>
           </view>
         </view>
-        <view class="button" v-if="item.statusCode === '1'">
-          <view class="btn-single" @click.stop="editGoods(item.id)">
-            编辑作品
+        <view v-if="item.statusCode === '1'">
+          <view class="button" v-if="roleName === 'normal'">
+            <view class="btn-single" @click.stop="editGoods(item.id)">
+              编辑作品
+            </view>
           </view>
           <view
-            class="btn-single btn-single-blue"
-            @click.stop="submitGoods(item.id)"
+            class="button"
+            v-if="roleName === 'roomer' || roleName === 'admin'"
           >
-            提交审核
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="remindUser(item.id)"
+            >
+              提醒用户
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '2'">
+          <view class="button" v-if="roleName === 'normal'">
+            <view class="btn-single" @click.stop="editGoods(item.id)">
+              编辑作品
+            </view>
+          </view>
+          <view
+            class="button"
+            v-if="roleName === 'roomer' || roleName === 'admin'"
+          >
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="checkGoods(item.id)"
+            >
+              审核作品
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '3'">
+          <view class="button" v-if="roleName === 'normal'">
+            <view class="btn-single" @click.stop="lookReason(item.reason)">
+              查看原因
+            </view>
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="editGoods(item.id)"
+            >
+              重新提交
+            </view>
+          </view>
+          <view
+            class="button"
+            v-if="roleName === 'roomer' || roleName === 'admin'"
+          >
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="gotoPage('/pages/picDetail/picDetail', item.id)"
+            >
+              查看作品
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '4'">
+          <view
+            class="button"
+            v-if="roleName === 'roomer' || roleName === 'admin'"
+          >
+            <view class="btn-single" @click.stop="lockGoods(item.id)">
+              锁定作品
+            </view>
+            <view class="btn-single" @click.stop="offlineGoods(item.id)">
+              下架作品
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '5'">
+          <view
+            class="button"
+            v-if="roleName === 'roomer' || roleName === 'admin'"
+          >
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="onlineGoods(item.id)"
+            >
+              上架作品
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '6'">
+          <view
+            class="button"
+            v-if="roleName === 'roomer' || roleName === 'admin'"
+          >
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="unlockGoods(item.id)"
+            >
+              解锁作品
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '7'">
+          <!-- 卖家待确认，不进行任何操作 -->
+        </view>
+        <view v-if="item.statusCode === '8'">
+          <view class="button" v-if="roleName === 'roomer'">
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="roomerEditGoods(item.id)"
+            >
+              编辑作品
+            </view>
+          </view>
+          <view class="button" v-if="roleName === 'admin'">
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="adminCheckGoods(item.id)"
+            >
+              审核作品
+            </view>
+          </view>
+        </view>
+        <view v-if="item.statusCode === '9'">
+          <view class="button" v-if="roleName === 'roomer'">
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="lookReason(item.reason)"
+            >
+              查看原因
+            </view>
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="roomerEditGoods(item.id)"
+            >
+              重新编辑
+            </view>
+          </view>
+          <view class="button" v-if="roleName === 'admin'">
+            <view
+              class="btn-single btn-single-blue"
+              @click.stop="adminCheckGoods(item.id)"
+            >
+              审核作品
+            </view>
           </view>
         </view>
       </view>
@@ -50,9 +231,12 @@ export default {
     return {
       current: 0,
       tabs: ["所有商品", "已上架", "未上架"],
+      counts: [],
       hasNextPage: false,
       items: [],
       loading: false,
+      userInfo: {},
+      roleName: "",
     };
   },
   onLoad(option) {
@@ -72,8 +256,25 @@ export default {
     this.items = [];
     this.hasNextPage = false;
     this.loading = false;
-    await this.getCount();
-    await this.getMyPicList({ start: 0, hit: 10 });
+    const [{ data }] = await Promise.all([
+      apiService.getUserInfo(),
+      this.getCount(),
+      this.getMyPicList({ start: 0, hit: 10 }),
+    ]);
+    let roleName = "normal";
+    if (data.roleCode === "1") {
+      roleName = "admin";
+    } else if (data.roleCode === "2") {
+      if (data.isManager) {
+        roleName = "admin";
+      }
+    } else {
+      if (data.isRoomer) {
+        roleName = "roomer";
+      }
+    }
+    this.roleName = roleName;
+    this.userInfo = data;
   },
   async onReachBottom() {
     if (this.hasNextPage) {
@@ -93,12 +294,14 @@ export default {
       }
     },
     async getCount() {
+      if (this.counts.length) return;
       const [first, second, third] = await Promise.all([
         apiService.getMyPicList({ start: 0, hit: 1, type: "1" }),
         apiService.getMyPicList({ start: 0, hit: 1, type: "2" }),
         apiService.getMyPicList({ start: 0, hit: 1, type: "3" }),
       ]);
       const counts = [first.data.total, second.data.total, third.data.total];
+      this.counts = counts;
       this.tabs = this.tabs.map((tab, index) => `${tab}(${counts[index]})`);
     },
     async getMyPicList({ start = 0, hit = 10 }) {
@@ -116,6 +319,46 @@ export default {
       } finally {
         this.loading = false;
       }
+    },
+    async remindUser(id) {
+      await apiService.sendNotice({ id });
+      uni.showToast({
+        title: "提醒成功",
+        icon: "success",
+        duration: 2000,
+      });
+    },
+    async editGoods(id) {
+      // TODO: 这里是跳转去编辑作品积分进行提交
+    },
+    checkGoods(id) {
+      // TODO: 这里需要跳转到商品审核页面
+      // uni.navigateTo({ url: `/pages/?id=${id}` });
+    },
+    lookReason(reason) {
+      uni.showModal({
+        title: "原因",
+        content: reason,
+        showCancel: false,
+      });
+    },
+    async lockGoods(id) {
+      // TODO: 这里调用锁定作品的接口
+    },
+    async unlockGoods(id) {
+      // TODO: 这里解锁作品
+    },
+    async offlineGoods(id) {
+      // TODO: 这里下架作品
+    },
+    async onlineGoods(id) {
+      // TODO: 这里上架作品
+    },
+    adminCheckGoods(id) {
+      // TODO: 管理员审核新发布作品，跳转新页面
+    },
+    roomerEditGoods(id) {
+      // TODO: 画室长重新编辑作品
     },
   },
 };
@@ -205,5 +448,6 @@ export default {
   height: 20px;
   color: #cccccc;
   text-align: center;
+  padding-bottom: 20px;
 }
 </style>

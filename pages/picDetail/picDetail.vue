@@ -19,7 +19,7 @@
       <view class="upper">作品描述</view>
       <view class="downer">{{ goods.description }}</view>
     </view>
-    <view class="footer">
+    <view class="footer" v-if="goods.statusCode === '4'">
       <view class="btn">
         <view
           class="botton"

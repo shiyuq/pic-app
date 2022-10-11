@@ -118,6 +118,22 @@ const editMyPic = async (params) => {
   return axios.post("/my/pic/edit", params);
 }
 
+const sendNotice = async (params) => {
+  return axios.post("/message/notice/send", params);
+}
+
+const getMessageList = async (params) => {
+  return axios.post("/message/list", params);
+}
+
+const readMessage = async (params) => {
+  return axios.post("/message/read", params);
+}
+
+const addPic = async (params) => {
+  return axios.post("/pic/add", params);
+}
+
 module.exports = {
   login,
   logout,
@@ -145,5 +161,11 @@ module.exports = {
   confirmOrder,
 
   getMyPicList,
-  editMyPic
+  editMyPic,
+
+  addPic,
+
+  sendNotice,
+  getMessageList,
+  readMessage
 };

@@ -134,6 +134,34 @@ const addPic = async (params) => {
   return axios.post("/pic/add", params);
 }
 
+const updatePic = async (params) => {
+  return axios.post("/pic/update", params);
+}
+
+const checkPic = async (params) => {
+  return axios.post("/pic/check", params);
+}
+
+const adminCheck = async (params) => {
+  return axios.post("/pic/admin/check", params);
+}
+
+const lockGoods = async (params) => {
+  return axios.post("/pic/lock", params);
+}
+
+const unlockGoods = async (params) => {
+  return axios.post("/pic/unlock", params);
+}
+
+const offlineGoods = async (params) => {
+  return axios.post("/pic/offline", params);
+}
+
+const onlineGoods = async (params) => {
+  return axios.post("/pic/online", params);
+}
+
 module.exports = {
   login,
   logout,
@@ -164,6 +192,13 @@ module.exports = {
   editMyPic,
 
   addPic,
+  updatePic,
+  checkPic,
+  adminCheck,
+  lockGoods,
+  unlockGoods,
+  offlineGoods,
+  onlineGoods,
 
   sendNotice,
   getMessageList,

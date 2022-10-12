@@ -28,7 +28,10 @@
             >
           </view>
         </view>
-        <view class="button" v-if="item.typeCode === '2'">
+        <view
+          class="button"
+          v-if="item.typeCode === '2' && item.statusCode === '1'"
+        >
           <view class="btn-single" @click.stop="confirmOrder(item.id)">
             确认订单
           </view>

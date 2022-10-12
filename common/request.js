@@ -33,6 +33,7 @@ service.interceptors.response.use(
         icon: "error",
         title: res.data.message,
       });
+      return Promise.reject(res.data.message);
     } else {
       return Promise.reject(res.data.message);
     }

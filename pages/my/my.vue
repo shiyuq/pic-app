@@ -5,8 +5,8 @@
         <view class="part1-2">
           <view class="part1-ring">
             <img src="/static/my/ring.png" alt="" />
-            <view class="part1-son">
-              <view class="part1-number">2</view>
+            <view class="part1-son" v-if="userInfo.unReadCount">
+              <view class="part1-number">{{ userInfo.unReadCount }}</view>
             </view>
           </view>
           <view class="user-info">

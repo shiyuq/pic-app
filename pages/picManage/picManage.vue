@@ -179,7 +179,7 @@
           <view class="button" v-if="roleName === 'roomer'">
             <view
               class="btn-single btn-single-blue"
-              @click.stop="roomerEditGoods(item.id)"
+              @click.stop="editGoods(item.id)"
             >
               编辑作品
             </view>
@@ -187,7 +187,7 @@
           <view class="button" v-if="roleName === 'admin'">
             <view
               class="btn-single btn-single-blue"
-              @click.stop="adminCheckGoods(item.id)"
+              @click.stop="checkGoods(item.id)"
             >
               审核作品
             </view>
@@ -203,17 +203,9 @@
             </view>
             <view
               class="btn-single btn-single-blue"
-              @click.stop="roomerEditGoods(item.id)"
+              @click.stop="editGoods(item.id)"
             >
               重新编辑
-            </view>
-          </view>
-          <view class="button" v-if="roleName === 'admin'">
-            <view
-              class="btn-single btn-single-blue"
-              @click.stop="adminCheckGoods(item.id)"
-            >
-              审核作品
             </view>
           </view>
         </view>
@@ -231,6 +223,7 @@ export default {
     return {
       current: 0,
       tabs: ["所有商品", "已上架", "未上架"],
+      tabsCopy: ["所有商品", "已上架", "未上架"],
       counts: [],
       hasNextPage: false,
       items: [],
@@ -328,12 +321,28 @@ export default {
         duration: 2000,
       });
     },
-    async editGoods(id) {
-      // TODO: 这里是跳转去编辑作品积分进行提交
+    editGoods(id) {
+      let type = "normal";
+      if (this.roleName === "normal") {
+        type = "normal";
+      } else if (this.roleName === "roomer") {
+        type = "roomer";
+      }
+      uni.navigateTo({ url: `/pages/picEdit/picEdit?id=${id}&type=${type}` });
     },
     checkGoods(id) {
       // TODO: 这里需要跳转到商品审核页面
-      // uni.navigateTo({ url: `/pages/?id=${id}` });
+      let type = "normal";
+      if (this.roleName === "roomer") {
+        type = "roomer";
+      } else if (this.roleName === "admin") {
+        type = "admin";
+      }
+      if (type !== "normal") {
+        uni.navigateTo({
+          url: `/pages/checkPic/checkPic?id=${id}&type=${type}`,
+        });
+      }
     },
     lookReason(reason) {
       uni.showModal({
@@ -343,22 +352,66 @@ export default {
       });
     },
     async lockGoods(id) {
-      // TODO: 这里调用锁定作品的接口
+      await apiService.lockGoods({ id });
+      uni.showToast({
+        title: "锁定成功",
+        icon: "success",
+        duration: 1000,
+      });
+      this.hasNextPage = false;
+      this.items = [];
+      setTimeout(async () => {
+        await this.getMyPicList({ start: 0, hit: 10 });
+      }, 500);
     },
     async unlockGoods(id) {
-      // TODO: 这里解锁作品
+      await apiService.unlockGoods({ id });
+      uni.showToast({
+        title: "解锁成功",
+        icon: "success",
+        duration: 1000,
+      });
+      this.hasNextPage = false;
+      this.items = [];
+      setTimeout(async () => {
+        await this.getMyPicList({ start: 0, hit: 10 });
+      }, 500);
     },
     async offlineGoods(id) {
-      // TODO: 这里下架作品
+      await apiService.offlineGoods({ id });
+      uni.showToast({
+        title: "下架成功",
+        icon: "success",
+        duration: 1000,
+      });
+      this.hasNextPage = false;
+      this.items = [];
+      this.counts = [];
+      this.tabs = this.tabsCopy;
+      setTimeout(async () => {
+        await Promise.all([
+          this.getCount(),
+          this.getMyPicList({ start: 0, hit: 10 }),
+        ]);
+      }, 500);
     },
     async onlineGoods(id) {
-      // TODO: 这里上架作品
-    },
-    adminCheckGoods(id) {
-      // TODO: 管理员审核新发布作品，跳转新页面
-    },
-    roomerEditGoods(id) {
-      // TODO: 画室长重新编辑作品
+      await apiService.onlineGoods({ id });
+      uni.showToast({
+        title: "上架成功",
+        icon: "success",
+        duration: 1000,
+      });
+      this.hasNextPage = false;
+      this.items = [];
+      this.counts = [];
+      this.tabs = this.tabsCopy;
+      setTimeout(async () => {
+        await Promise.all([
+          this.getCount(),
+          this.getMyPicList({ start: 0, hit: 10 }),
+        ]);
+      }, 500);
     },
   },
 };

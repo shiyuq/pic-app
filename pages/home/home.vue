@@ -34,7 +34,10 @@
           </view>
           <span style="font-size: 15px; padding-top: 15px">已完成订单</span>
         </view>
-        <view class="order-item">
+        <view
+          class="order-item"
+          @click="gotoPage('/pages/picManage/picManage')"
+        >
           <view class="bgc">
             <img src="/static/home/topublish.png" alt="" />
           </view>
@@ -59,7 +62,7 @@
         </view>
         <view class="mall-right">
           <view class="content-right">
-            <view class="r-l">
+            <view class="r-l" @click="toast()">
               <view class="r-l-l">
                 <span class="enter">体验区</span>
                 <view class="enter-mall">EXPERIENCE</view>
@@ -115,6 +118,13 @@ export default {
       } else {
         uni.navigateTo({ url: `${url}?type=${type}` });
       }
+    },
+    toast() {
+      uni.showToast({
+        title: "暂未开放",
+        icon: "none",
+        duration: 2000,
+      });
     },
   },
   async onShow() {

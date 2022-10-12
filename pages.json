@@ -82,33 +82,41 @@
                 "navigationBarTitleText": "订单详情",
                 "enablePullDownRefresh": false
             }
-        }
-        ,{
-            "path" : "pages/orderList/orderList",
-            "style" :                                                                                    
-            {
+        },
+        {
+            "path": "pages/orderList/orderList",
+            "style": {
                 "navigationBarTitleText": "我的订单",
                 "enablePullDownRefresh": false
             }
-            
-        }
-        ,{
-            "path" : "pages/picManage/picManage",
-            "style" :                                                                                    
-            {
+        },
+        {
+            "path": "pages/picManage/picManage",
+            "style": {
                 "navigationBarTitleText": "作品管理",
                 "enablePullDownRefresh": false
             }
-            
-        }
-        ,{
-            "path" : "pages/publish/publish",
-            "style" :                                                                                    
-            {
+        },
+        {
+            "path": "pages/publish/publish",
+            "style": {
                 "navigationBarTitleText": "发布作品",
                 "enablePullDownRefresh": false
             }
-            
+        },
+        {
+            "path": "pages/picEdit/picEdit",
+            "style": {
+                "navigationBarTitleText": "我的作品",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/checkPic/checkPic",
+            "style": {
+                "navigationBarTitleText": "审核作品",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {

@@ -27,7 +27,7 @@
           @click="buy()"
           >立即购买</view
         >
-        <view class="botton" v-else>我要预约</view>
+        <view class="botton" v-else @click="reverseGoods()">我要预约</view>
       </view>
     </view>
   </view>
@@ -80,6 +80,13 @@ export default {
           });
         },
         fail: function () {},
+      });
+    },
+    async reverseGoods() {
+      await apiService.reversePic({ id: this.goods.id });
+      uni.showToast({
+        title: "预约成功",
+        duration: 2000,
       });
     },
   },

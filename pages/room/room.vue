@@ -75,7 +75,10 @@
               <img src="/static/room/goods-manage.png" alt="" />
               <view class="single-text">作品管理</view>
             </view>
-            <view class="tool-single">
+            <view
+              class="tool-single"
+              @click="gotoPage('/pages/roomAbout/roomAbout')"
+            >
               <img src="/static/room/room-manage.png" alt="" />
               <view class="single-text">关于画室</view>
             </view>
@@ -108,7 +111,10 @@
               <img src="/static/room/artist-manage.png" alt="" />
               <view class="single-text">画家管理</view>
             </view>
-            <view class="tool-single">
+            <view
+              class="tool-single"
+              @click="gotoPage('/pages/roomEdit/roomEdit')"
+            >
               <img src="/static/room/room-manage.png" alt="" />
               <view class="single-text">画室管理</view>
             </view>
@@ -329,6 +335,7 @@ export default {
   }
   .my-tool {
     padding: 19px 0;
+    margin-bottom: 10px;
     .tool-header {
       font-size: 17px;
       font-weight: bold;

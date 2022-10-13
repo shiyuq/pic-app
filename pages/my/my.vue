@@ -3,7 +3,7 @@
     <view class="part1">
       <view class="part1-1">
         <view class="part1-2">
-          <view class="part1-ring">
+          <view class="part1-ring" @click="gotoPage('/pages/message/message')">
             <img src="/static/my/ring.png" alt="" />
             <view class="part1-son" v-if="userInfo.unReadCount">
               <view class="part1-number">{{ userInfo.unReadCount }}</view>
@@ -65,7 +65,7 @@
         </view>
       </view>
       <view class="part2">
-        <view class="part2-line">
+        <view class="part2-line" @click="gotoPage('/pages/userInfo/userInfo')">
           <img src="/static/my/info.png" alt="" />
           <span style="color: #333333; font-size: 16px">我的资料</span>
           <view style="margin-left: auto; color: #999999">></view>
@@ -75,7 +75,7 @@
           <span style="color: #333333; font-size: 16px">业绩统计</span>
           <view style="margin-left: auto; color: #999999">></view>
         </view>
-        <view class="part2-line">
+        <view class="part2-line" @click="gotoPage('/pages/pwdReset/pwdReset')">
           <img src="/static/my/edit.png" alt="" />
           <span style="color: #333333; font-size: 16px">修改密码</span>
           <view style="margin-left: auto; color: #999999">></view>

@@ -124,15 +124,48 @@
                 "navigationBarTitleText": "画家管理",
                 "enablePullDownRefresh": false
             }
-        }
-        ,{
-            "path" : "pages/artistEdit/artistEdit",
-            "style" :                                                                                    
-            {
+        },
+        {
+            "path": "pages/artistEdit/artistEdit",
+            "style": {
                 "navigationBarTitleText": "编辑画家",
                 "enablePullDownRefresh": false
             }
-            
+        },
+        {
+            "path": "pages/roomEdit/roomEdit",
+            "style": {
+                "navigationBarTitleText": "画室管理",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/roomAbout/roomAbout",
+            "style": {
+                "navigationBarTitleText": "关于画室",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/message/message",
+            "style": {
+                "navigationBarTitleText": "消息通知",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/pwdReset/pwdReset",
+            "style": {
+                "navigationBarTitleText": "修改密码",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/userInfo/userInfo",
+            "style": {
+                "navigationBarTitleText": "我的资料",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {

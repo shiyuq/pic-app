@@ -162,6 +162,18 @@ const onlineGoods = async (params) => {
   return axios.post("/pic/online", params);
 }
 
+const getPicRoomDetail = async (params) => {
+  return axios.post("/room/detail", params);
+}
+
+const updateRoom = async (params) => {
+  return axios.post("/room/update", params);
+}
+
+const reversePic = async (params) => {
+  return axios.post("/pic/reverse", params);
+}
+
 module.exports = {
   login,
   logout,
@@ -202,5 +214,8 @@ module.exports = {
 
   sendNotice,
   getMessageList,
-  readMessage
+  readMessage,
+  getPicRoomDetail,
+  updateRoom,
+  reversePic,
 };

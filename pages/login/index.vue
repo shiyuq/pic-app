@@ -122,7 +122,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   background: linear-gradient(0deg, #217bfb 0%, #4491ff 100%);
-  height: 100vh;
+  height: calc(100vh - 134px);
   padding: 0 15px;
   padding-top: 90px;
   .login {

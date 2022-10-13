@@ -117,6 +117,22 @@
                 "navigationBarTitleText": "审核作品",
                 "enablePullDownRefresh": false
             }
+        },
+        {
+            "path": "pages/artistManage/artistManage",
+            "style": {
+                "navigationBarTitleText": "画家管理",
+                "enablePullDownRefresh": false
+            }
+        }
+        ,{
+            "path" : "pages/artistEdit/artistEdit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "编辑画家",
+                "enablePullDownRefresh": false
+            }
+            
         }
     ],
     "globalStyle": {

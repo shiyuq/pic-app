@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="total">
     <view class="content">
       <view class="logo">
         <img src="/static/phone.png" alt="" srcset="" />
@@ -21,8 +21,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.total {
+  padding-top: 20px;
+}
 .content {
-  margin: 20px 15px 0 15px;
+  margin: 0 15px 0 15px;
   background-color: #e9f1f7;
   height: 82px;
   border-radius: 10px;

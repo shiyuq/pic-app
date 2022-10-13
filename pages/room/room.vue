@@ -101,7 +101,10 @@
               <img src="/static/room/goods-manage.png" alt="" />
               <view class="single-text">作品管理</view>
             </view>
-            <view class="tool-single">
+            <view
+              class="tool-single"
+              @click="gotoPage('/pages/artistManage/artistManage')"
+            >
               <img src="/static/room/artist-manage.png" alt="" />
               <view class="single-text">画家管理</view>
             </view>

@@ -26,7 +26,10 @@
         <view class="right">></view>
       </view>
     </view>
-    <view class="no-more" v-if="!hasNextPage">没有更多了~</view>
+    <view class="no-more" v-if="!hasNextPage && messages.length"
+      >没有更多了~</view
+    >
+    <view class="no-more" v-else>暂无消息~</view>
   </view>
 </template>
 

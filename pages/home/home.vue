@@ -287,9 +287,12 @@ export default {
     }
   }
   .content-3 {
-    padding: 20px 15px 30px 15px;
+    padding: 20px 5px 30px 5px;
     display: flex;
     justify-content: space-around;
+    .artist-3 {
+      width: 30%;
+    }
     .single-3 {
       display: flex;
       flex-direction: column;
@@ -310,6 +313,10 @@ export default {
         font-size: 16px;
         font-weight: 500;
         color: #222222;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
       }
     }
   }

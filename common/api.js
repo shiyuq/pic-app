@@ -12,11 +12,8 @@ const logout = async () => {
   return axios.post("/user/logout", {});
 };
 
-const userRegister = async ({ phone, password }) => {
-  return axios.post("/user/register", {
-    phone,
-    password,
-  });
+const userRegister = async (params) => {
+  return axios.post("/user/register", params);
 };
 
 const updateUserInfo = async ({

@@ -61,7 +61,9 @@
             placeholder="请输入推荐人邀请码"
           />
         </view>
-        <button class="button-login"><span>立即注册</span></button>
+        <button class="button-login" @click="register()">
+          <span>立即注册</span>
+        </button>
         <view class="bottom-reg" @click="gotoPage('/pages/login/index')"
           ><span>已有账号？</span
           ><span style="color: #217bfb">立即登录</span></view
@@ -72,6 +74,7 @@
 </template>
 
 <script>
+import apiService from "../../common/api";
 export default {
   data() {
     return {
@@ -180,6 +183,70 @@ export default {
     },
     canvasIdErrorCallback(e) {
       console.error(e.detail.errMsg);
+    },
+    async register() {
+      if (!this.phone) {
+        uni.showToast({
+          title: "请输入手机号",
+          icon: "none",
+          duration: 2000,
+        });
+        return;
+      }
+      if (!this.password) {
+        uni.showToast({
+          title: "请输入密码",
+          icon: "none",
+          duration: 2000,
+        });
+        return;
+      }
+      if (!this.name) {
+        uni.showToast({
+          title: "请输入名字",
+          icon: "none",
+          duration: 2000,
+        });
+        return;
+      }
+      if (!this.inviteCode) {
+        uni.showToast({
+          title: "请输入邀请码",
+          icon: "none",
+          duration: 2000,
+        });
+        return;
+      }
+      if (!this.inputVcode) {
+        uni.showToast({
+          title: "请输入验证码",
+          icon: "none",
+          duration: 2000,
+        });
+        return;
+      }
+      if (this.inputVcode.toUpperCase() !== this.vcode) {
+        uni.showToast({
+          title: "邀请码错误",
+          icon: "none",
+          duration: 2000,
+        });
+        return;
+      }
+      await apiService.userRegister({
+        phone: this.phone,
+        password: this.password,
+        name: this.name,
+        inviteCode: this.inviteCode,
+      });
+      uni.showToast({
+        title: "注册成功",
+        icon: "success",
+        duration: 1000,
+      });
+      setTimeout(() => {
+        this.gotoPage("/pages/login/index");
+      }, 500);
     },
   },
 };

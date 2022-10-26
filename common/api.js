@@ -171,6 +171,10 @@ const reversePic = async (params) => {
   return axios.post("/pic/reverse", params);
 }
 
+const getRoomList = async (params) => {
+  return axios.post("/room/list", params);
+}
+
 module.exports = {
   login,
   logout,
@@ -215,4 +219,5 @@ module.exports = {
   getPicRoomDetail,
   updateRoom,
   reversePic,
+  getRoomList,
 };

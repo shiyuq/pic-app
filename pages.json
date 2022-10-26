@@ -166,6 +166,13 @@
                 "navigationBarTitleText": "我的资料",
                 "enablePullDownRefresh": false
             }
+        },
+        {
+            "path": "pages/roomList/roomList",
+            "style": {
+                "navigationBarTitleText": "画室管理",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {

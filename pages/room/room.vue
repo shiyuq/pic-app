@@ -111,10 +111,7 @@
               <img src="/static/room/artist-manage.png" alt="" />
               <view class="single-text">画家管理</view>
             </view>
-            <view
-              class="tool-single"
-              @click="gotoPage('/pages/roomEdit/roomEdit')"
-            >
+            <view class="tool-single" @click="gotoRoomListByType()">
               <img src="/static/room/room-manage.png" alt="" />
               <view class="single-text">画室管理</view>
             </view>
@@ -154,7 +151,7 @@ export default {
     this.roomNo = uni.getStorageSync("roomNo") || "";
     if (data.isRoomer) this.currentRole = 3;
     if (data.roleCode === "1") this.currentRole = 1;
-    if (data.roleCode === "2" && isManager) this.currentRole = 2;
+    if (data.roleCode === "2" && data.isManager) this.currentRole = 2;
   },
   methods: {
     copy() {
@@ -174,6 +171,13 @@ export default {
         uni.navigateTo({ url: `${url}?type=${type}` });
       } else {
         uni.navigateTo({ url });
+      }
+    },
+    gotoRoomListByType() {
+      if (this.currentRole >= 3) {
+        this.gotoPage("/pages/roomEdit/roomEdit");
+      } else {
+        this.gotoPage("/pages/roomList/roomList");
       }
     },
   },

@@ -7,9 +7,11 @@
         :key="item.id"
         @click="gotoPage('/pages/picDetail/picDetail', item.id)"
       >
-        <img :src="item.avatar" alt="" />
-        <view class="name">{{ item.name }}</view>
-        <view class="credit">{{ item.realCredit }} 积分</view>
+        <view class="goods-single-internal">
+          <img :src="item.avatar" alt="" />
+          <view class="name">{{ item.name }}</view>
+          <view class="credit">{{ item.realCredit }} 积分</view>
+        </view>
       </view>
     </view>
     <view class="no-more" v-if="!hasNextPage && items.length">没有更多了~</view>
@@ -70,11 +72,19 @@ export default {
 
 <style lang="scss" scoped>
 .goods {
-  margin: 15px 7.5px 15px 7.5px;
+  padding: 15px 7.5px 15px 7.5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  .goods-single {
+}
+.goods-single {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .goods-single-internal {
+    width: 100%;
     margin: 7px 7.5px;
     background-color: #fff;
     border-radius: 5px;
@@ -84,7 +94,7 @@ export default {
     align-items: center;
     img {
       border-radius: 5px 5px 0 0;
-      width: 165px;
+      width: 100%;
       height: 124px;
     }
     .name {

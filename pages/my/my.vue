@@ -29,7 +29,7 @@
               style="
                 color: #262c35;
                 font-size: 19px;
-                font-weight: 600;
+                font-weight: bold;
                 line-height: 15px;
               "
               >{{ userInfo.remainCredits }}</span
@@ -43,7 +43,7 @@
               <span style="font-size: 18px; font-weight: 500; color: #333333"
                 >我的订单</span
               >
-              <view style="margin-left: auto; color: #999999">></view>
+              <img src="/static/arrow.png" alt="" class="arrow-right" />
             </view>
             <view class="commission-detail">
               <view
@@ -68,17 +68,17 @@
         <view class="part2-line" @click="gotoPage('/pages/userInfo/userInfo')">
           <img src="/static/my/info.png" alt="" />
           <span style="color: #333333; font-size: 16px">我的资料</span>
-          <view style="margin-left: auto; color: #999999">></view>
+          <img src="/static/arrow.png" alt="" class="arrow-right" />
         </view>
         <view class="part2-line">
           <img src="/static/my/data.png" alt="" />
           <span style="color: #333333; font-size: 16px">业绩统计</span>
-          <view style="margin-left: auto; color: #999999">></view>
+          <img src="/static/arrow.png" alt="" class="arrow-right" />
         </view>
         <view class="part2-line" @click="gotoPage('/pages/pwdReset/pwdReset')">
           <img src="/static/my/edit.png" alt="" />
           <span style="color: #333333; font-size: 16px">修改密码</span>
-          <view style="margin-left: auto; color: #999999">></view>
+          <img src="/static/arrow.png" alt="" class="arrow-right" />
         </view>
         <view class="part2-line">
           <img src="/static/my/logout.png" alt="" />
@@ -253,7 +253,18 @@ export default {
         height: 18px;
         margin-right: 14.5px;
       }
+      .arrow-right {
+        margin-left: auto;
+        width: 7px;
+        height: 11px;
+        margin-right: 0;
+      }
     }
   }
+}
+.arrow-right {
+  margin-left: auto;
+  width: 7px;
+  height: 11px;
 }
 </style>

@@ -89,7 +89,9 @@
     <view class="part3">
       <view class="title-3" @click="gotoPage('/pages/artists/artists')">
         <span class="title-left">画家资料</span>
-        <span class="title-right">更多 ></span>
+        <span class="title-right"
+          >更多 <img src="/static/arrow.png" alt=""
+        /></span>
       </view>
       <view class="content-3">
         <view class="artist-3" v-for="item in artists">
@@ -162,6 +164,10 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      img {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }
@@ -212,6 +218,10 @@ export default {
       .enter-pic {
         display: flex;
         justify-content: flex-end;
+        img {
+          width: 76.5px;
+          height: 58px;
+        }
       }
     }
     .content-right {
@@ -284,6 +294,11 @@ export default {
       margin-left: auto;
       color: #989898;
       font-size: 16px;
+      img {
+        width: 7px;
+        height: 11px;
+        margin-left: 5px;
+      }
     }
   }
   .content-3 {

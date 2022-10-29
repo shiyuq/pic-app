@@ -196,7 +196,7 @@ export default {
         justify-content: center;
         .commission-number {
           font-size: 23px;
-          font-weight: 600;
+          font-weight: bold;
           color: #333333;
           margin-bottom: 8px;
         }
@@ -215,15 +215,18 @@ export default {
     padding: 18px;
     .line-data {
       margin-top: 25px;
+      margin-right: 20px;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
+      justify-content: space-between;
       .single-data {
-        width: 50%;
         display: flex;
         flex-direction: row;
         align-items: center;
         img {
+          width: 35px;
+          height: 35px;
           margin-right: 12px;
         }
         .data-detail {

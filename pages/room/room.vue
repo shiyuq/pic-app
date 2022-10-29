@@ -9,7 +9,7 @@
         </view>
         <view class="header-tag">
           <view class="upper">{{ roleMap[currentRole] }}</view>
-          <view class="downer">我的画室 ></view>
+          <view class="downer" @click="gotoRoom()">我的画室 ></view>
         </view>
       </view>
       <view class="credits">
@@ -180,6 +180,11 @@ export default {
         this.gotoPage("/pages/roomList/roomList");
       }
     },
+    gotoRoom() {
+      uni.switchTab({
+        url: "/pages/my/my",
+      });
+    },
   },
 };
 </script>
@@ -252,7 +257,7 @@ export default {
         font-size: 12px;
         font-weight: 500;
         color: #bad1f2;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
       }
       .downer {
         font-size: 19px;
@@ -301,7 +306,7 @@ export default {
       align-items: center;
       .upper {
         font-size: 22px;
-        font-weight: 800;
+        font-weight: bold;
         color: #000000;
         padding-bottom: 14px;
       }

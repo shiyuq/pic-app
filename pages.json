@@ -173,6 +173,20 @@
                 "navigationBarTitleText": "画室管理",
                 "enablePullDownRefresh": false
             }
+        },
+        {
+            "path": "pages/fans/fans",
+            "style": {
+                "navigationBarTitleText": "我的粉丝",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/score/score",
+            "style": {
+                "navigationBarTitleText": "业绩统计",
+                "enablePullDownRefresh": false
+            }
         }
     ],
     "globalStyle": {

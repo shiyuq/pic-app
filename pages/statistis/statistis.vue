@@ -65,7 +65,7 @@
             </view>
           </view>
           <view class="line-data">
-            <view class="single-data">
+            <view class="single-data" @click="gotoPage('/pages/fans/fans')">
               <img src="/static/data/fans.png" alt="" />
               <view class="data-detail">
                 <span class="data-detail-title">我的粉丝</span>
@@ -104,6 +104,9 @@ export default {
         title: "已复制到剪切板",
         duration: 2000,
       });
+    },
+    gotoPage(url) {
+      uni.navigateTo({ url });
     },
   },
 };

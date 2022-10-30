@@ -175,6 +175,14 @@ const getRoomList = async (params) => {
   return axios.post("/room/list", params);
 }
 
+const getDownerList = async (params) => {
+  return axios.post("/user/downer/list", params);
+}
+
+const getUpperList = async (params) => {
+  return axios.post("/credit/upper/list", params);
+}
+
 module.exports = {
   login,
   logout,
@@ -220,4 +228,6 @@ module.exports = {
   updateRoom,
   reversePic,
   getRoomList,
+  getDownerList,
+  getUpperList,
 };

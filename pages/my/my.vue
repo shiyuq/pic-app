@@ -70,7 +70,7 @@
           <span style="color: #333333; font-size: 16px">我的资料</span>
           <img src="/static/arrow.png" alt="" class="arrow-right" />
         </view>
-        <view class="part2-line">
+        <view class="part2-line" @click="gotoPage('/pages/score/score')">
           <img src="/static/my/data.png" alt="" />
           <span style="color: #333333; font-size: 16px">业绩统计</span>
           <img src="/static/arrow.png" alt="" class="arrow-right" />

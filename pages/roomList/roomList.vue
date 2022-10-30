@@ -76,7 +76,6 @@ export default {
   .info {
     background-color: #fff;
     padding: 10px 13px;
-    border-radius: 5px;
     .detail {
       display: flex;
       flex-direction: row;

@@ -82,7 +82,7 @@
               <img src="/static/room/room-manage.png" alt="" />
               <view class="single-text">关于画室</view>
             </view>
-            <view class="tool-single">
+            <view class="tool-single" @click="gotoPage('/pages/score/score')">
               <img src="/static/room/data-center.png" alt="" />
               <view class="single-text">数据中心</view>
             </view>

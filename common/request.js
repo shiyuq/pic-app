@@ -1,7 +1,7 @@
 import axios from "axios";
 
-let baseURL = "http://127.0.0.1:6003";
-// let baseURL = "http://119.29.184.178:6003";
+// let baseURL = "http://127.0.0.1:6003";
+let baseURL = "http://119.29.184.178:6003";
 // let baseURL = "http://api.wnb2022.com";
 
 const service = axios.create({
